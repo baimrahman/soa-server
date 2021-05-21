@@ -35,6 +35,13 @@ router.get("/:id", async (req, res) => {
   res.send(data);
 });
 
+router.delete("/:id", async (req, res) => {
+  const data = await mongoose
+    .model("coba", schema)
+    .deleteOne({ _id: req.params.id });
+  res.send(data);
+});
+
 router.post("/submit", async (req, res) => {
   try {
     const tes = await mongoose
